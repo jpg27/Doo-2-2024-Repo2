@@ -1,4 +1,4 @@
-package co.edu.uco.ucobet.data.dao.impl.sqlserver;
+package co.edu.uco.ucobet.data.dao.impl.sql.sqlserver;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
