@@ -1,10 +1,10 @@
 package co.edu.uco.ucobet.data.dao.impl.sql.sqlserver;
 
 import java.sql.Connection;
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,12 +19,12 @@ public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
 		super(connection);
 	}
 
-/* private static final String INSERT_CITY_QUERY = "INSERT INTO City (id, name, stateId) VALUES (?, ?, ?)";
+    //private static final String INSERT_CITY_QUERY = "INSERT INTO City (id, name, stateId) VALUES (?, ?, ?)";
     private static final String FIND_BY_ID_QUERY = "SELECT id, name, stateId FROM City WHERE id = ?";
     private static final String FIND_ALL_QUERY = "SELECT id, name, stateId FROM City";
     private static final String FIND_BY_FILTER_QUERY = "SELECT id, name, stateId FROM City WHERE name LIKE ?";
-    private static final String UPDATE_CITY_QUERY = "UPDATE City SET name = ?, stateId = ? WHERE id = ?";
-    private static final String DELETE_CITY_QUERY = "DELETE FROM City WHERE id = ?";*/
+   // private static final String UPDATE_CITY_QUERY = "UPDATE City SET name = ?, stateId = ? WHERE id = ?";
+    //private static final String DELETE_CITY_QUERY = "DELETE FROM City WHERE id = ?";
 
     @Override
     public void create(final CityEntity data) {
@@ -65,8 +65,7 @@ public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
 
     @Override
     public CityEntity findById(UUID id) {
-		return null;
-       /* CityEntity city = null;
+        CityEntity city = null;
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_BY_ID_QUERY)) {
@@ -84,13 +83,12 @@ public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
             throw new RuntimeException("Error al buscar la ciudad con id: " + id, e);
         }
 
-        return city;*/
+        return city;
     }
 
     @Override
     public List<CityEntity> findAll() {
-		return null;
-       /* List<CityEntity> cities = new ArrayList<>();
+        List<CityEntity> cities = new ArrayList<>();
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_ALL_QUERY);
@@ -105,13 +103,12 @@ public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
             throw new RuntimeException("Error al buscar todas las ciudades", e);
         }
 
-        return cities;*/
+        return cities;
     }
 
     @Override
     public List<CityEntity> findByFilter(CityEntity filter) {
-		return null;
-       /* List<CityEntity> cities = new ArrayList<>();
+        List<CityEntity> cities = new ArrayList<>();
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_BY_FILTER_QUERY)) {
@@ -129,7 +126,7 @@ public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
             throw new RuntimeException("Error al buscar ciudades con filtro", e);
         }
 
-        return cities;*/
+        return cities;
     }
 
     @Override
@@ -188,6 +185,7 @@ public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
 
 			throw DataUcoBetException.crear(userMessage, technicalMessage, exception);
 		}
+    }
     	
     	
         /*try (Connection connection = DatabaseConnection.getConnection();
@@ -201,18 +199,16 @@ public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
             logError(e, "Error al eliminar la ciudad con id: " + id);
             throw new RuntimeException("Error al eliminar la ciudad", e);
         }
-    }
+    }*/
 
     private CityEntity mapResultSetToCityEntity(ResultSet resultSet) throws SQLException {
-        return new CityEntity(
-        );
+        return new CityEntity();
     }
 
     //para que suba al git <3
     private void logError(SQLException e, String message) {
         System.err.println(message);
         e.printStackTrace();
-    }*/
-}
     }
+   }
 
