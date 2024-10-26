@@ -17,7 +17,7 @@ import co.edu.uco.ucobet.data.dao.CountryDAO;
 import co.edu.uco.ucobet.data.dao.impl.sql.SqlDAO;
 import co.edu.uco.ucobet.entity.CountryEntity;
 
-public final class CountrySqlServerDAO extends SqlDAO implements CountryDAO {
+final class CountrySqlServerDAO extends SqlDAO implements CountryDAO {
 
     public  CountrySqlServerDAO(Connection connection) {
 		super(connection);

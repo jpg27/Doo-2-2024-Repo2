@@ -13,7 +13,7 @@ import co.edu.uco.ucobet.data.dao.CityDAO;
 import co.edu.uco.ucobet.data.dao.impl.sql.SqlDAO;
 import co.edu.uco.ucobet.entity.CityEntity;
 
-public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
+final class CitySqlServerDAO extends SqlDAO implements CityDAO {
 
    protected CitySqlServerDAO(Connection connection) {
 		super(connection);

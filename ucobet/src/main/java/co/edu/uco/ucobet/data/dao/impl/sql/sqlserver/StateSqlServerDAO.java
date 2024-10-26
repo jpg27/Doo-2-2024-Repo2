@@ -9,9 +9,14 @@ import java.util.List;
 import java.util.UUID;
 
 import co.edu.uco.ucobet.data.dao.StateDAO;
+import co.edu.uco.ucobet.data.dao.impl.sql.SqlDAO;
 import co.edu.uco.ucobet.entity.StateEntity;
 
-public class StateSqlServerDAO implements StateDAO {
+final class StateSqlServerDAO extends SqlDAO implements StateDAO {
+
+	   protected StateSqlServerDAO(Connection connection) {
+			super(connection);
+		}
 
     private static final String FIND_BY_ID_QUERY = "SELECT id, name FROM State WHERE id = ?";
     private static final String FIND_ALL_QUERY = "SELECT id, name FROM State";
