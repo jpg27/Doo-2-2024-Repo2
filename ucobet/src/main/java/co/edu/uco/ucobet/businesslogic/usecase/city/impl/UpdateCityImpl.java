@@ -19,6 +19,7 @@ public final class UpdateCityImpl implements UpdateCity {
 	public void execute(final CityDomain data) {
 		//validar politicas
 		
+		
 		var CityEntity = CityEntityAdapter.getCityEntityAdapter().adaptSource(data);
 		daoFactory.getCityDAO().update(CityEntity);
 		

@@ -1,6 +1,9 @@
 package co.edu.uco.ucobet.businesslogic.adapter.dto;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.edu.uco.crosscutting.helpers.ObjectHelper;
 import co.edu.uco.crosscutting.helpers.TextHelper;
 import co.edu.uco.crosscutting.helpers.UUIDHelper;
@@ -30,6 +33,18 @@ public final class CityDTOAdapter implements Adapter<CityDomain, CityDTO>{
 	public CityDTO adaptTarget(CityDomain data) {
 		var domainToAdapt = ObjectHelper.getDefault(data, CityDomain.create(UUIDHelper.getDefault(), TextHelper.EMPTY, null));
 		return CityDTO.create().setId("").setName(domainToAdapt.getName());
+	}
+
+	@Override
+	public List<CityDTO> adaptTarget(final List<CityDomain> data) {
+		
+		var results = new ArrayList<CityDTO>();
+		
+		for(CityDomain domain : data) {
+			results.add(adaptTarget(domain));
+		}
+		
+		return results;
 	}
 
 }

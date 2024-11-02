@@ -8,7 +8,7 @@ public final class DeleteCityImpl implements DeleteCity{
 
 	@Override
 	public void execute(final UUID data) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

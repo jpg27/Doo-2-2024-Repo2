@@ -1,5 +1,8 @@
 package co.edu.uco.ucobet.businesslogic.adapter.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.edu.uco.crosscutting.helpers.ObjectHelper;
 import co.edu.uco.crosscutting.helpers.TextHelper;
 import co.edu.uco.crosscutting.helpers.UUIDHelper;
@@ -29,6 +32,17 @@ public final class CountryDTOAdapter implements Adapter<CountryDomain, CountryDT
 	public CountryDTO adaptTarget(final CountryDomain data) {
 		var domainToAdapt = ObjectHelper.getDefault(data, CountryDomain.create(UUIDHelper.getDefault(), TextHelper.EMPTY));
 		return CountryDTO.create().setId("").setName(domainToAdapt.getName());
+	}
+
+	@Override
+	public List<CountryDTO> adaptTarget(final List<CountryDomain> data) {
+		var results = new ArrayList<CountryDTO>();
+		
+		for(CountryDomain domain : data) {
+			results.add(adaptTarget(domain));
+		}
+		
+		return results;
 	}
 
 }

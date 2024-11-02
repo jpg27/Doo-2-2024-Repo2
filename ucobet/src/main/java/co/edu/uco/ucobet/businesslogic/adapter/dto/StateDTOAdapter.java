@@ -1,5 +1,8 @@
 package co.edu.uco.ucobet.businesslogic.adapter.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.edu.uco.crosscutting.helpers.ObjectHelper;
 import co.edu.uco.crosscutting.helpers.TextHelper;
 import co.edu.uco.crosscutting.helpers.UUIDHelper;
@@ -29,6 +32,17 @@ public final class StateDTOAdapter implements Adapter<StateDomain, StateDTO>{
 	public StateDTO adaptTarget(final StateDomain data) {
 		var domainToAdapt = ObjectHelper.getDefault(data, StateDomain.create(UUIDHelper.getDefault(), TextHelper.EMPTY, null));
 		return StateDTO.create().setId("").setName(domainToAdapt.getName());
+	}
+
+	@Override
+	public List<StateDTO> adaptTarget(List<StateDomain> data) {
+		var results = new ArrayList<StateDTO>();
+		
+		for(StateDomain domain : data) {
+			results.add(adaptTarget(domain));
+		}
+		
+		return results;
 	}
 
 }
